@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yunotek Energy Advisor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="dark-mode">
+    <header class="app-header">
+      <div class="logo-area">
+        <img
+          src="yunoteklogokopyası.jpg"
+          alt="Yunotek Logo"
+          class="header-logo"
+        />
+
+        <div>
+          <div class="logo-main">Yunotek Enerji Sistemleri</div>
+          <div class="logo-sub">Akıllı Enerji Danışmanı</div>
+          <div class="logo-caption">
+            Kesintisiz enerji için akıllı seçim aracı
+          </div>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <button class="nav-link" data-target="landing">Ana Sayfa</button>
+        <button class="nav-link" data-target="scenario">Enerji Analizi</button>
+        <button class="nav-link" data-target="results">Çalışma Süresi</button>
+        <button class="nav-link" data-target="solar">Solar Hesaplayıcı</button>
+        <button class="nav-link" data-target="about">Hakkında</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="landing" class="view active">
+        <div class="hero">
+          <div class="hero-top">
+            <div class="hero-text">
+              <h1>Elektrik Kesintisinde Enerjiniz Yarım Kalmasın</h1>
+
+              <p>
+                Cihazlarınızın bilgilerini girin, enerji ihtiyacınızı hesaplayın
+                ve size en uygun Yunotek güç çözümünü saniyeler içinde öğrenin.
+              </p>
+
+              <button id="heroCta" class="btn primary">
+                Enerji İhtiyacımı Hesapla
+              </button>
+
+              <p class="hero-helper">
+                Ev, karavan, kamp, ofis veya klinik için gerçek ihtiyaçlarınıza
+                göre hesaplanan güç çözümleri.
+              </p>
+            </div>
+
+            <div class="card hero-info-card">
+              <span class="mini-label">Yunotek Energy Advisor</span>
+
+              <h2>Akıllı Enerji Analizi</h2>
+
+              <p>
+                Kullanacağınız cihazların Watt ve Wh değerlerini analiz ederek
+                hangi Yougen enerji paketinin ihtiyacınıza daha uygun olduğunu
+                hesaplar.
+              </p>
+
+              <div class="info-list">
+                <div>⚡ Anlık güç analizi</div>
+                <div>🔋 Toplam enerji ihtiyacı</div>
+                <div>✅ Uygun ürün tavsiyesi</div>
+                <div>☀️ Solar panel desteği</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-products">
+            <a
+              href="https://www.yunotek.com.tr/urun/mini-enerji-paketi-youngenmini-600w-100w-gunes-paneli"
+              target="_blank"
+              class="product-card product-link"
+            >
+              <img src="yougen-mini.png" alt="Yougen Mini" />
+              <h3>Yougen Mini</h3>
+              <p>Enerji Paketi</p>
+              <span>Kamp ve günlük kullanım</span>
+
+              <div class="product-specs">
+                <strong>600W</strong>
+                <strong>577Wh</strong>
+              </div>
+            </a>
+
+            <a
+              href="https://www.yunotek.com.tr/urun/maxi-enerji-2-paketi-youngenmax-2000w-400w-gunes-paneli"
+              target="_blank"
+              class="product-card product-link"
+            >
+              <img src="yougen-max2.png" alt="Yougen Max 2" />
+              <h3>Yougen Max 2</h3>
+              <p>Enerji Paketi</p>
+              <span>Kamp ve karavan kullanım</span>
+
+              <div class="product-specs">
+                <strong>2000W</strong>
+                <strong>1648Wh</strong>
+              </div>
+            </a>
+
+            <a
+              href="https://www.yunotek.com.tr/urun/maxi-enerji-3-paketi-youngenmax-3000w-400w-gunes-paneli"
+              target="_blank"
+              class="product-card product-link"
+            >
+              <img src="yougen-max3.png" alt="Yougen Max 3" />
+              <h3>Yougen Max 3</h3>
+              <p>Enerji Paketi</p>
+              <span>Premium kullanım</span>
+
+              <div class="product-specs">
+                <strong>3000W</strong>
+                <strong>2880Wh</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="scenario" class="view">
+        <div class="container">
+          <h2>Güç istasyonunu nerede kullanacaksınız?</h2>
+          <p class="subtitle">Kullanım senaryonuzu seçin.</p>
+
+          <div class="card-grid scenario-grid">
+            <button class="card scenario-card" data-scenario="Ev">
+              🏠
+              <h3>Ev</h3>
+            </button>
+            <button class="card scenario-card" data-scenario="Karavan">
+              🚐
+              <h3>Karavan</h3>
+            </button>
+            <button class="card scenario-card" data-scenario="Kamp">
+              🏕
+              <h3>Kamp</h3>
+            </button>
+            <button class="card scenario-card" data-scenario="Klinik">
+              🏥
+              <h3>Klinik</h3>
+            </button>
+            <button class="card scenario-card" data-scenario="Ofis">
+              🏢
+              <h3>Ofis</h3>
+            </button>
+            <button class="card scenario-card" data-scenario="Diğer">
+              ⚡
+              <h3>Diğer</h3>
+            </button>
+          </div>
+
+          <div id="selectedScenarioInfo" class="info-banner hidden"></div>
+        </div>
+      </section>
+
+      <section id="devices" class="view">
+        <div class="container">
+          <h2>Çalıştırmak İstediğiniz Cihazları Ekleyin</h2>
+
+          <p class="subtitle">
+            Hazır cihaz listesinden seçim yapabilir veya kendi cihazınızın Watt
+            değerini girebilirsiniz.
+          </p>
+
+          <div class="layout-two-column">
+            <div class="card">
+              <h3>Hazır Cihaz Seç</h3>
+
+              <select id="presetDevice">
+                <option value="">Bir cihaz seçin...</option>
+                <option value="Akıllı Telefon">Akıllı Telefon (5-10W)</option>
+                <option value="Bilgisayar">Bilgisayar (50-100W)</option>
+                <option value="Televizyon">Televizyon (80-150W)</option>
+                <option value="Elektrikli Pişirici">
+                  Elektrikli Pişirici (200-800W)
+                </option>
+                <option value="Ampul">Ampul (5-15W)</option>
+                <option value="Buzdolabı">Buzdolabı (100-200W)</option>
+                <option value="Dron">Dron (50-100W)</option>
+                <option value="Elektrikli Matkap">
+                  Elektrikli Matkap (300-800W)
+                </option>
+                <option value="Kahve Makinası">
+                  Kahve Makinası (800-1800W)
+                </option>
+                <option value="Klima">Klima (900-2000W)</option>
+                <option value="Elektrikli Fırın">
+                  Elektrikli Fırın (2000-3000W)
+                </option>
+                <option value="Elektrikli Izgara">
+                  Elektrikli Izgara (1500-2200W)
+                </option>
+                <option value="Yat Motoru">Yat Motoru (3000-6000W)</option>
+              </select>
+
+              <input
+                type="number"
+                id="presetQuantity"
+                min="1"
+                placeholder="Adet"
+              />
+              <input
+                type="number"
+                id="presetHours"
+                min="0.5"
+                step="0.5"
+                placeholder="Saat"
+              />
+
+              <button id="addPresetDevice" class="btn secondary full">
+                Cihazı Ekle
+              </button>
+            </div>
+
+            <div class="card">
+              <h3>Manuel Cihaz Ekle</h3>
+
+              <input type="text" id="customName" placeholder="Cihaz adı" />
+              <input
+                type="number"
+                id="customWatt"
+                min="1"
+                placeholder="Watt Miktarı"
+              />
+              <input
+                type="number"
+                id="customQuantity"
+                min="1"
+                placeholder="Adet"
+              />
+              <input
+                type="number"
+                id="customHours"
+                min="0.5"
+                step="0.5"
+                placeholder="Saat"
+              />
+
+              <button id="addCustomDevice" class="btn secondary full">
+                Cihazı Ekle
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Eklenen Cihazlar</h3>
+            <div id="deviceListEmpty" class="muted">Henüz cihaz eklenmedi.</div>
+
+            <table id="deviceTable" class="device-table hidden">
+              <thead>
+                <tr>
+                  <th>Cihaz</th>
+                  <th>Ortalama Watt Miktarı</th>
+                  <th>Adet</th>
+                  <th>Saat</th>
+                  <th>Wh</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody id="deviceTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="actions space-between">
+            <button class="btn ghost" data-target="scenario">Geri</button>
+            <button id="calculateBtn" class="btn primary">Hesapla</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="view">
+        <div class="container">
+          <h2>Enerji Analiz Sonucu</h2>
+
+          <div id="resultsContent" class="hidden">
+            <div class="summary-grid two-columns">
+              <div class="card">
+                <h3>Toplam Güç İhtiyacı</h3>
+                <p class="summary-value"><span id="totalPower">0</span> W</p>
+                <p class="muted">Cihazların aynı anda çekeceği toplam güç.</p>
+              </div>
+
+              <div class="card">
+                <h3>Toplam Enerji Tüketimi</h3>
+                <p class="summary-value"><span id="totalEnergy">0</span> Wh</p>
+                <p class="muted">
+                  Belirlediğiniz saate göre toplam enerji ihtiyacı.
+                </p>
+              </div>
+            </div>
+
+            <div class="card runtime-main-card">
+              <h3>Tüm Modellerde Tahmini Çalışma Süresi</h3>
+              <p class="muted">
+                Aşağıdaki süreler, seçtiğiniz cihazların aynı anda çalıştığı
+                varsayılarak hesaplanır.
+              </p>
+              <div id="runtimeCards" class="card-grid runtime-grid"></div>
+            </div>
+
+            <div class="card recommended-card">
+              <h3>Size Önerilen Güç İstasyonu</h3>
+              <div id="recommendedProductContainer"></div>
+            </div>
+          </div>
+
+          <div class="actions space-between">
+            <button class="btn ghost" data-target="devices">
+              Cihazları Düzenle
+            </button>
+            <button class="btn secondary" data-target="solar">
+              Solar Hesaplayıcı
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="solar" class="view">
+        <div class="container">
+          <h2>Solar Panel Hesaplayıcı</h2>
+
+          <div class="solar-layout">
+            <div class="card solar-input-card">
+              <h3>Solar Bilgileri</h3>
+
+              <input
+                type="number"
+                id="solarHours"
+                min="1"
+                max="12"
+                step="0.5"
+                value="6"
+                placeholder="Güneşlenme süresi"
+              />
+
+              <select id="solarPanelSelect">
+                <option value="100">100W Panel</option>
+                <option value="400">400W Panel</option>
+              </select>
+
+              <select id="sunIntensity">
+                <option value="1">Güneş ışığı: Öğle / Yaz dönemi</option>
+                <option value="0.9">Güneş ışığı: Normal</option>
+                <option value="0.8">Güneş ışığı: Sabah / Akşam</option>
+                <option value="0.7">Güneş ışığı: Kış dönemi</option>
+              </select>
+
+              <select id="weatherCondition">
+                <option value="1">Hava durumu: Güneşli</option>
+                <option value="0.7">Hava durumu: Parçalı bulutlu</option>
+                <option value="0.45">Hava durumu: Bulutlu</option>
+                <option value="0.15">Hava durumu: Yağmurlu</option>
+              </select>
+
+              <select id="panelAngle">
+                <option value="1">Panel açısı: Güneşe dik</option>
+                <option value="0.85">Panel açısı: Hafif eğik</option>
+                <option value="0.7">Panel açısı: Düz yatay</option>
+              </select>
+
+              <select id="shading">
+                <option value="1">Gölgeleme: Gölge yok</option>
+                <option value="0.65">Gölgeleme: Kısmi gölge</option>
+                <option value="0.25">Gölgeleme: Yoğun gölge</option>
+              </select>
+
+              <button id="solarCalcBtn" class="btn primary full">
+                Hesapla
+              </button>
+            </div>
+
+            <div class="card solar-production-card">
+              <h3>☀️ Günlük Enerji Üretim Analizi</h3>
+
+              <div id="solarSummary" class="solar-summary hidden">
+                <p>Günlük üretim:</p>
+                <strong><span id="solarDailyWh">0</span> Wh</strong>
+              </div>
+
+              <div
+                id="solarEfficiencyResult"
+                class="efficiency-box hidden"
+              ></div>
+              <div id="solarUsageExamples" class="usage-examples hidden"></div>
+            </div>
+          </div>
+
+          <div class="card sun-hours-card">
+            <h3>Türkiye Ortalama Güneşlenme Süresi</h3>
+
+            <div class="city-grid">
+              <span>Türkiye Ortalaması: 7.5 saat/gün</span>
+              <span>Antalya: 8.2 saat/gün</span>
+              <span>Muğla: 8.0 saat/gün</span>
+              <span>Mersin: 8.0 saat/gün</span>
+              <span>Adana: 8.1 saat/gün</span>
+              <span>Konya: 7.4 saat/gün</span>
+              <span>Ankara: 6.7 saat/gün</span>
+              <span>Kayseri: 7.0 saat/gün</span>
+              <span>İzmir: 8.2 saat/gün</span>
+              <span>Aydın: 8.0 saat/gün</span>
+              <span>Denizli: 7.5 saat/gün</span>
+              <span>Gaziantep: 8.2 saat/gün</span>
+              <span>Şanlıurfa: 8.3 saat/gün</span>
+              <span>Diyarbakır: 8.0 saat/gün</span>
+              <span>İstanbul: 6.7 saat/gün</span>
+              <span>Bursa: 6.8 saat/gün</span>
+              <span>Samsun: 5.5 saat/gün</span>
+              <span>Trabzon: 4.8 saat/gün</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Taşınabilir Güneş Panelleri</h3>
+
+            <div class="solar-panel-showcase">
+              <div class="solar-panel-card">
+                <img
+                  src="100Wsolarpanel.png"
+                  alt="100W Taşınabilir Güneş Paneli"
+                />
+                <h3>100W Taşınabilir Güneş Paneli</h3>
+
+                <ul>
+                  <li>Katlanabilir yapı</li>
+                  <li>Taşınabilir tasarım</li>
+                  <li>Yougen Mini ile uyumlu</li>
+                  <li>Kamp ve günlük kullanım</li>
+                </ul>
+              </div>
+
+              <div class="solar-panel-card">
+                <img
+                  src="400Wsolarpanel.png"
+                  alt="400W Taşınabilir Güneş Paneli"
+                />
+                <h3>400W Taşınabilir Güneş Paneli</h3>
+
+                <ul>
+                  <li>Yüksek enerji üretimi</li>
+                  <li>Karavan ve Tiny House kullanımı</li>
+                  <li>Yougen Max serisi ile uyumlu</li>
+                  <li>Katlanabilir taşınabilir tasarım</li>
+                </ul>
+              </div>
+            </div>
+
+            <div id="solarProductResults" class="solar-product-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="view">
+        <div class="container about-page">
+          <h2>Yunotek Energy Advisor Hakkında</h2>
+
+          <div class="card about-intro-card">
+            <p>
+              Bu sistem, cihaz bazlı watt ve watt-saat değerlerini analiz ederek
+              kullanıcılara en uygun taşınabilir güç istasyonu önerisini sunar.
+            </p>
+
+            <p>
+              Kullanıcı; kullanım alanını, cihazlarını, adetlerini ve çalışma
+              sürelerini girerek toplam güç ihtiyacını ve tahmini enerji
+              tüketimini görebilir.
+            </p>
+
+            <p>
+              Sistem; Yougen Mini, Yougen Max 2 ve Yougen Max 3 ürünlerini
+              karşılaştırarak uygun modeli önerir.
+            </p>
+          </div>
+
+          <div class="section-title">
+            <h2>Yunotek Nedir?</h2>
+            <p>
+              Taşınabilir enerji, güneş paneli desteği ve akıllı güç
+              istasyonlarıyla kesintisiz enerji çözümleri.
+            </p>
+          </div>
+
+          <div class="about-feature-grid">
+            <div class="about-feature-card">
+              <span>⚡</span>
+              <h3>Taşınabilir Enerji</h3>
+              <p>
+                Elektriğin olmadığı alanlarda cihazlarınızı çalıştırmak için
+                pratik enerji çözümü sunar.
+              </p>
+            </div>
+
+            <div class="about-feature-card">
+              <span>☀️</span>
+              <h3>Güneş Enerjisi Desteği</h3>
+              <p>
+                Solar panel desteğiyle doğada, karavanda ve açık alanlarda
+                sürdürülebilir enerji sağlar.
+              </p>
+            </div>
+
+            <div class="about-feature-card">
+              <span>🔋</span>
+              <h3>Akıllı Güç İstasyonları</h3>
+              <p>
+                Farklı kapasite seçenekleriyle telefon, laptop, aydınlatma ve
+                birçok cihazı destekler.
+              </p>
+            </div>
+
+            <div class="about-feature-card">
+              <span>🏕️</span>
+              <h3>Kamp ve Karavan Kullanımı</h3>
+              <p>
+                Kamp, karavan, tiny house ve açık hava yaşamında enerji
+                ihtiyacını karşılamaya yardımcı olur.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <h2>Yunotek Ürünleri</h2>
+          </div>
+
+          <div class="about-product-grid">
+            <div class="about-product-card">
+              <img
+                src="yougen-mini.png"
+                alt="Yougen Mini"
+                class="about-product-img"
+              />
+              <h3>Yougen Mini Enerji Paketi</h3>
+              <strong>600W PS + 100W SP</strong>
+              <p>600W Güç ve 577.2 Wh kapasite</p>
+              <ul>
+                <li>Kamp</li>
+                <li>Laptop</li>
+                <li>Telefon</li>
+                <li>Drone</li>
+              </ul>
+              <p>100W Taşınabilir güneş paneli</p>
+            </div>
+
+            <div class="about-product-card">
+              <img
+                src="yougen-max2.png"
+                alt="Yougen Max 2"
+                class="about-product-img"
+              />
+              <h3>Yougen Max 2 Enerji Paketi</h3>
+              <strong>2000W PS + 400W SP</strong>
+              <p>2000W Güç ve 1648.6 Wh kapasite</p>
+              <ul>
+                <li>Karavan</li>
+                <li>Küçük işletme</li>
+                <li>Acil durum</li>
+              </ul>
+              <p>400W Taşınabilir güneş paneli</p>
+            </div>
+
+            <div class="about-product-card">
+              <img
+                src="yougen-max3.png"
+                alt="Yougen Max 3"
+                class="about-product-img"
+              />
+              <h3>Yougen Max 3 Enerji Paketi</h3>
+              <strong>3000W PS + 400W Ps</strong>
+              <p>3000W Güç ve 2880 Wh kapasite</p>
+              <ul>
+                <li>Uzun süreli kullanım</li>
+                <li>Profesyonel ihtiyaçlar</li>
+                <li>Yüksek enerji tüketimi</li>
+              </ul>
+              <p>400W Taşınabilir güneş paneli</p>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <h2>Kullanım Alanları</h2>
+          </div>
+
+          <div class="about-usage-grid">
+            <div>🏕️ Kamp</div>
+            <div>🚐 Karavan</div>
+            <div>🏠 Ev Yedeği</div>
+            <div>🏥 Sağlık Cihazları</div>
+            <div>📸 Fotoğraf ve Drone Çekimleri</div>
+            <div>🌾 Tarla ve Bağ Evleri</div>
+          </div>
+
+          <div class="card vision-card">
+            <h2>Yougen varsa enerji var</h2>
+
+            <p>
+              Yeni Dünya düzeninde bireyler ve işletmeler yenilenebilir enerji
+              çözümlerine yönelmektedir. Yunotek olarak asıl amacımız YOUGEN
+              taşınabilir güç istasyonlarıyla insanın yaşayabileceği her yerde
+              ihtiyacı olan enerjiden yoksun kalmamasını sağlamaktır. Güneşin
+              gönderdiği enerjinin YOUGEN güç istasyonlarında depolanarak
+              ihtiyaç duyulan her anınızda daima hazır bulunmasıdır. Çevre dostu
+              olması nedeniyle İklim değişikliğiyle mücadelede insanlığın
+              geleceğine katkı sağlamaktadır
+            </p>
+
+            <p>
+              Güneş enerjisi destekli güç istasyonlarıyla kampçılardan karavan
+              kullanıcılarına, ev kullanıcılarından işletmelere kadar birçok
+              alanda kesintisiz enerji çözümleri sunmayı hedefler.
+            </p>
+
+            <a
+              href="https://www.yunotek.com.tr/"
+              target="_blank"
+              class="site-button"
+            >
+              Yunotek Web Sitesine Git
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-title">Yunotek Energy Advisor</div>
+
+      <div class="footer-description">
+        Elektrik kesintileri için akıllı enerji planlama sistemi
+      </div>
+
+      <div class="footer-products">
+        <span>Yougen Mini</span>
+        <span>Yougen Max 2</span>
+        <span>Yougen Max 3</span>
+        <span>Yougen Solar Panel</span>
+      </div>
+
+      <div class="footer-copyright">
+        © <span id="year">2026</span> Yunotek Enerji Sistemleri
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
